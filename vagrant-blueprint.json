@@ -1,0 +1,47 @@
+{
+    "host_groups" : [
+	{
+	    "components" : [
+		{ "name" : "APP_TIMELINE_SERVER" },
+		{ "name" : "HISTORYSERVER" },
+		{ "name" : "METRICS_MONITOR" },
+		{ "name" : "NAMENODE" },
+		{ "name" : "RESOURCEMANAGER" },
+		{ "name" : "SECONDARY_NAMENODE" },
+		{ "name" : "ZOOKEEPER_CLIENT" },
+		{ "name" : "ZOOKEEPER_SERVER" }
+	    ],
+	    "name" : "master",
+	    "cardinality" : "1"
+	},
+	{
+	    "components" : [
+		{ "name" : "DATANODE" },
+		{ "name" : "METRICS_MONITOR" },
+		{ "name" : "NODEMANAGER" }
+	    ],
+	    "name" : "slave",
+	    "cardinality" : "2"
+	},
+	{
+	    "components" : [
+		{ "name" : "AMBARI_SERVER" },
+		{ "name" : "HDFS_CLIENT" },
+		{ "name" : "MAPREDUCE2_CLIENT" },
+		{ "name" : "METRICS_COLLECTOR" },
+		{ "name" : "METRICS_MONITOR" },
+		{ "name" : "NFS_GATEWAY" },
+		{ "name" : "PIG" },
+		{ "name" : "TEZ_CLIENT" },
+		{ "name" : "YARN_CLIENT" }
+	    ],
+	    "name" : "gateway",
+	    "cardinality" : "1"
+	}
+    ],
+    "Blueprints" : {
+	"blueprint_name": "vagrant",
+	"stack_name" : "HDP",
+	"stack_version" : "2.3"
+    }
+}

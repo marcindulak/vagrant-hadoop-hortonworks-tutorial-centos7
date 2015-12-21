@@ -168,14 +168,14 @@ Instead run a small MapReduce word count example https://hadoop.apache.org/docs/
             $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'hadoop fs -mkdir -p /user/vagrant/WordCount/input'"
             $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'hadoop fs -put LICENSE /user/vagrant/WordCount/input'"
             $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'hadoop fs -cat /user/vagrant/WordCount/input/*'"
-            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'wget https://raw.githubusercontent.com/marcindulak/vagrant-hadoop-hortonworks-tutorial-centos7/master/WordCount.sh"
-            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'sh WordCount.sh"
+            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'wget https://raw.githubusercontent.com/marcindulak/vagrant-hadoop-hortonworks-tutorial-centos7/master/WordCount.sh'"
+            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'sh WordCount.sh'"
             $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'hadoop fs -cat /user/vagrant/WordCount/mapreduce-output/*'"
 
 - run Pig word count example (the code taken from https://github.com/hortonworks/hadoop-tutorials/blob/master/Community/T03_Word_Counting_With_Pig.md)::
 
-            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'wget https://raw.githubusercontent.com/marcindulak/vagrant-hadoop-hortonworks-tutorial-centos7/master/wc.pig"
-            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'pig wc.pig"
+            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'wget https://raw.githubusercontent.com/marcindulak/vagrant-hadoop-hortonworks-tutorial-centos7/master/wc.pig'"
+            $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'pig wc.pig'"
             $ vagrant ssh gateway0 -c "sudo su - vagrant -c 'hadoop fs -cat /user/vagrant/WordCount/pig-mapreduce-output/*'"
 
 When done, destroy the test machines with::

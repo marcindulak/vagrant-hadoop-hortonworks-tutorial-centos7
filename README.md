@@ -142,7 +142,7 @@ installation by accessing `localhost:8080` in a host browser with `admin`/`admin
 
 - check if there are any failures (with the state: not *OK*)::
 
-            $ curl -H "X-Requested-By: ambari" -X GET -u admin:admin http://localhost:8080/api/v1/clusters/c1/alerts?Alert/state!=OK
+            $ curl -H "X-Requested-By: ambari" -X GET -u admin:admin http://localhost:8080/api/v1/clusters/vagrant/alerts?Alert/state!=OK
 
 - verify the available HDFS space::
 

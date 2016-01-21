@@ -4,32 +4,32 @@
         {
 	    "ams-env" : {
 		"properties" : {
-		    "metrics_collector_heapsize" : "128m"
+		    "metrics_collector_heapsize" : "64m"
 		}
             },
             "hadoop-env" : {
                 "properties" : {
-                    "dtnode_heapsize" : "128m",
-		    "hadoop_heapsize" : "128",
-		    "namenode_heapsize" : "128m",
-		    "namenode_opt_newsize" : "128m",
-		    "namenode_opt_maxpermsize" : "128m",
-		    "namenode_opt_maxnewsize" : "128m",
-		    "namenode_opt_permsize" : "128m",
-		    "nfsgateway_heapsize" : "128"
+                    "dtnode_heapsize" : "64m",
+		    "hadoop_heapsize" : "64",
+		    "namenode_heapsize" : "64m",
+		    "namenode_opt_newsize" : "64m",
+		    "namenode_opt_maxpermsize" : "64m",
+		    "namenode_opt_maxnewsize" : "64m",
+		    "namenode_opt_permsize" : "64m",
+		    "nfsgateway_heapsize" : "64"
                 }
             },
             "mapred-env" : {
                 "properties" : {
-		    "jobhistory_heapsize" : "128"
+		    "jobhistory_heapsize" : "64"
 		}
 	    },
             "yarn-env" : {
                 "properties" : {
-                    "apptimelineserver_heapsize" : "128",
-		    "resourcemanager_heapsize" : "128",
-		    "yarn_heapsize" : "128",
-		    "nodemanager_heapsize" : "128"
+                    "apptimelineserver_heapsize" : "64",
+		    "resourcemanager_heapsize" : "64",
+		    "yarn_heapsize" : "64",
+		    "nodemanager_heapsize" : "64"
 		}
 	    },
 	    "hdfs-site" : {
@@ -42,8 +42,8 @@
 	    },
 	    "mapred-site" : {
 		"properties" : {
-		    "mapreduce.reduce.java.opts" : "-Xmx128m",
-                    "mapreduce.reduce.memory.mb" : "128"
+		    "mapreduce.reduce.java.opts" : "-Xmx64m",
+                    "mapreduce.reduce.memory.mb" : "64"
 		}
 	    }
 	}

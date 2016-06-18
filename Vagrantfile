@@ -154,43 +154,45 @@ SCRIPT
       hosts.keys.sort.each do |k|
         server.vm.provision 'shell' do |s|
           s.inline = $etc_hosts
-          s.args   = hosts[k]['ip'] + ' ' + hosts[k]['hostname']
+          s.args   = [hosts[k]['ip'], hosts[k]['hostname']]
         end
       end
       server.vm.provision :shell, :inline => $linux_disable_ipv6
       server.vm.provision :shell, :inline => $setenforce_0
       server.vm.provision 'shell' do |s|
         s.inline = $ambari_el7
-        s.args   = AMBARI_VER
+        s.args   = [AMBARI_VER]
       end
       # configure key-based ssh for ceph user using vagrant's keys
       server.vm.provision :file, source: '~/.vagrant.d/insecure_private_key', destination: '~vagrant/.ssh/id_rsa'
       server.vm.provision 'shell' do |s|
         s.inline = $key_based_ssh
-        s.args   = AMBARI_USER
+        s.args   = [AMBARI_USER]
       end
       server.vm.provision 'shell' do |s|
         s.inline = $dotssh_chmod_600
-        s.args   = AMBARI_USER
+        s.args   = [AMBARI_USER]
       end
       server.vm.provision 'shell' do |s|
         s.inline = $dotssh_config
-        s.args   = AMBARI_USER
+        s.args   = [AMBARI_USER]
       end
       server.vm.provision 'shell' do |s|
         s.inline = $dotssh_chown
-        s.args   = AMBARI_USER + ' ' + AMBARI_USER
+        s.args   = [AMBARI_USER, AMBARI_USER]
       end
       server.vm.provision 'shell' do |s|
         s.inline = $ifcfg
-        s.args   = hosts[host]['ip'] + ' 255.255.255.0 eth1 Ethernet'
+        s.args   = [hosts[host]['ip'], '255.255.255.0', 'eth1', 'Ethernet']
       end
       server.vm.provision :shell, :inline => 'ifup eth1', run: 'always'
+      # restarting network fixes RTNETLINK answers: File exists
+      server.vm.provision :shell, :inline => 'systemctl restart network', run: 'always'
       server.vm.provision :shell, :inline => 'yum -y install java-1.8.0-openjdk'
       # install and start ambari-agent; gateway0 is the Ambari server
       server.vm.provision 'shell' do |s|
         s.inline = $ambari_agent
-        s.args   = 'gateway0'
+        s.args   = ['gateway0']
       end
       # install and enable ntp
       server.vm.provision :shell, :inline => 'yum -y install ntp'

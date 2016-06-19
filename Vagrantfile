@@ -187,7 +187,7 @@ SCRIPT
       end
       server.vm.provision :shell, :inline => 'ifup eth1', run: 'always'
       # restarting network fixes RTNETLINK answers: File exists
-      server.vm.provision :shell, :inline => 'systemctl restart network', run: 'always'
+      server.vm.provision :shell, :inline => 'systemctl restart network'
       server.vm.provision :shell, :inline => 'yum -y install java-1.8.0-openjdk'
       # install and start ambari-agent; gateway0 is the Ambari server
       server.vm.provision 'shell' do |s|

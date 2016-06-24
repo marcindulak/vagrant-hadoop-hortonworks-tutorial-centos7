@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-AMBARI_VER = '2.1.2.1'
+AMBARI_VER = '2.2.2.0'
 AMBARI_USER = 'root'
 
 hosts = {

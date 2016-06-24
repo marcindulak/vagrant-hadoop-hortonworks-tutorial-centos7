@@ -1,5 +1,6 @@
 {
     "blueprint": "vagrant",
+    "default_password" : "super-secret-password",
     "configurations" : [
         {
 	    "ams-env" : {

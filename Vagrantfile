@@ -157,8 +157,7 @@ SCRIPT
           s.args   = [hosts[k]['ip'], hosts[k]['hostname']]
         end
       end
-      server.vm.provision :shell, :inline => $linux_disable_ipv6
-      server.vm.provision :shell, :inline => $setenforce_0
+      server.vm.provision :shell, :inline => $setenforce_0, run: 'always'
       server.vm.provision 'shell' do |s|
         s.inline = $ambari_el7
         s.args   = [AMBARI_VER]
@@ -188,6 +187,7 @@ SCRIPT
       server.vm.provision :shell, :inline => 'ifup eth1', run: 'always'
       # restarting network fixes RTNETLINK answers: File exists
       server.vm.provision :shell, :inline => 'systemctl restart network'
+      server.vm.provision :shell, :inline => $linux_disable_ipv6, run: 'always'
       server.vm.provision :shell, :inline => 'yum -y install java-1.8.0-openjdk'
       # install and start ambari-agent; gateway0 is the Ambari server
       server.vm.provision 'shell' do |s|

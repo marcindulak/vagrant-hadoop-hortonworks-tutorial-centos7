@@ -200,3 +200,12 @@ BSD 2-clause
 ----
 Todo
 ----
+
+
+--------
+Problems
+--------
+
+1. If you get "VBoxManage: error: Could not find a controller named 'IDE Controller'" (see https://github.com/redhat-imaging/imagefactory/issues/393)
+   prepend `CONTROLLER=IDE` to all vagrant commands, e.g. `CONTROLLER=IDE vagrant up`
+

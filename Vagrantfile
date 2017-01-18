@@ -11,6 +11,8 @@ hosts = {
   'gateway0' => {'hostname' => 'gateway0', 'ip' => '192.168.10.100', 'mac' => '080027010100', 'http_port' => 8080},
 }
 
+CONTROLLER = ENV.fetch('CONTROLLER', 'IDE Controller')
+
 Vagrant.configure(2) do |config|
   hosts.keys.sort.each do |host|
     if host.start_with?("master")
@@ -46,7 +48,7 @@ Vagrant.configure(2) do |config|
             v.customize ["createhd", "--filename", disk, "--size", 2048, "--variant", "Fixed"]
             v.customize ["modifyhd", disk, "--type", "writethrough"]
           end
-          v.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", 0, "--device", 1, "--type", "hdd", "--medium", disk]
+          v.customize ["storageattach", :id, "--storagectl", "CONTROLLER", "--port", 0, "--device", 1, "--type", "hdd", "--medium", disk]
         end
       end
     end

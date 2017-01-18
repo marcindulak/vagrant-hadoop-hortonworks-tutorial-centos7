@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
             v.customize ["createhd", "--filename", disk, "--size", 2048, "--variant", "Fixed"]
             v.customize ["modifyhd", disk, "--type", "writethrough"]
           end
-          v.customize ["storageattach", :id, "--storagectl", "CONTROLLER", "--port", 0, "--device", 1, "--type", "hdd", "--medium", disk]
+          v.customize ["storageattach", :id, "--storagectl", CONTROLLER, "--port", 0, "--device", 1, "--type", "hdd", "--medium", disk]
         end
       end
     end

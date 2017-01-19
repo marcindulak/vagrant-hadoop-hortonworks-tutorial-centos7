@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
       config.vm.define hosts[host]['hostname'] do |master|
         master.vm.box = 'centos/7'
         master.vm.box_url = 'centos/7'
-        master.vm.synced_folder '.', '/home/vagrant/sync', disabled: true
+        master.vm.synced_folder '.', '/vagrant', disabled: true
         master.vm.network 'private_network', ip: hosts[host]['ip'], mac: hosts[host]['mac'], auto_config: false
         master.vm.provider 'virtualbox' do |v|
           v.memory = 768
@@ -35,7 +35,7 @@ Vagrant.configure(2) do |config|
       config.vm.define hosts[host]['hostname'] do |slave|
         slave.vm.box = 'centos/7'
         slave.vm.box_url = 'centos/7'
-        slave.vm.synced_folder '.', '/home/vagrant/sync', disabled: true
+        slave.vm.synced_folder '.', '/vagrant', disabled: true
         slave.vm.network 'private_network', ip: hosts[host]['ip'], mac: hosts[host]['mac'], auto_config: false
         slave.vm.provider 'virtualbox' do |v|
           v.memory = 512
@@ -58,7 +58,7 @@ Vagrant.configure(2) do |config|
       config.vm.define hosts[host]['hostname'] do |gateway|
         gateway.vm.box = 'centos/7'
         gateway.vm.box_url = 'centos/7'
-        gateway.vm.synced_folder '.', '/home/vagrant/sync', disabled: true
+        gateway.vm.synced_folder '.', '/vagrant', disabled: true
         gateway.vm.network 'private_network', ip: hosts[host]['ip'], mac: hosts[host]['mac'], auto_config: false
         gateway.vm.network 'forwarded_port', guest: 8080, host: hosts[host]['http_port']
         gateway.vm.provider 'virtualbox' do |v|

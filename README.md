@@ -9,7 +9,7 @@ A basic usage of the cluster is demonstrated by running a word count MapReduce a
 
 Tested on Ubuntu 14.04 host.
 
-**Note**: you need at least 4GB RAM and 30 GB disk space on your host.
+**Note**: you need at least 5GB RAM and 30 GB disk space on your host.
 
 ![ambari-vagrant.png](https://raw.github.com/marcindulak/vagrant-hadoop-hortonworks-tutorial-centos7/master/screenshots/ambari-vagrant.png)
 

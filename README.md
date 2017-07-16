@@ -138,7 +138,7 @@ installation by accessing `localhost:8080` in a host browser with `admin`/`admin
 - create the cluster instance::
 
             $ curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://localhost:8080/api/v1/clusters/vagrant -d @vagrant-cluster.json
-            $ sleep 3000  # wait for the installation to finish
+            $ sleep 1800  # wait for the installation to finish
 
 - check if there are any failures (with the state: not *OK*)::
 
